@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 
 import {userIcon} from "../utils/constants"
 import { addUser } from '../utils/userSlice';
+
 const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -42,8 +43,6 @@ const Login = () => {
             .then((userCredential) => {
                 // Signed up 
                 const user = userCredential.user;
-                console.log(user)
-                navigate("/browse")
                 updateProfile(user, {
                     displayName: name.current.value, photoURL: {userIcon}
                   }).then(() => {
@@ -56,7 +55,6 @@ const Login = () => {
                         displayName: displayName, 
                         photoURL: photoURL
                     }))
-                    navigate("/browse")
                   }).catch((error) => {
                     // An error occurred
                     // ...
@@ -78,8 +76,14 @@ const Login = () => {
               // Signed in 
               const user = userCredential.user;
               // ...
+              dispatch(addUser({
+                uid: user.uid,
+                email: user.email,
+                displayName: user.displayName,
+                // Add other user properties as needed
+              }));
               console.log(user)
-              navigate("/browse")
+
             })
             .catch((error) => {
               const errorCode = error.code;
@@ -89,9 +93,6 @@ const Login = () => {
             });
 
         }
-
-
-         
     }
   return (
     <div>

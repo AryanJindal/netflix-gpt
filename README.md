@@ -218,3 +218,65 @@ onAuthStateChanged(auth, (user) => {
 
 ## useNavigate
 - when wants to re-direct to another page from one page
+The `useNavigate` hook is part of the React Router library and is used for navigating between different views or pages in a React application. It's particularly useful in components that are not directly rendered by a `Route` component but still need to perform navigation.
+
+2. **Import `useNavigate`:**
+   Import the `useNavigate` hook at the beginning of the file where you want to use it.
+
+   ```jsx
+   import { useNavigate } from 'react-router-dom';
+   ```
+
+3. **Use `useNavigate` in your component:**
+   In your component, call `useNavigate()` to get the `navigate` function. This function can be used to programmatically navigate to different routes.
+
+   ```jsx
+   const MyComponent = () => {
+     const navigate = useNavigate();
+
+     const handleClick = () => {
+       // Use the navigate function to go to a specific route
+       navigate('/some-route');
+     };
+
+     return (
+       <div>
+         <p>This is my component</p>
+         <button onClick={handleClick}>Go to Some Route</button>
+       </div>
+     );
+   };
+   ```
+
+   In the example above, when the button is clicked, the `handleClick` function is called, and it uses the `navigate` function to go to the `/some-route`.
+
+4. **Dynamic Navigation:**
+   You can also use `navigate` with dynamic routes by providing parameters.
+
+   ```jsx
+   const MyComponent = () => {
+     const navigate = useNavigate();
+
+     const handleDynamicClick = (id) => {
+       // Use navigate with dynamic route parameters
+       navigate(`/dynamic-route/${id}`);
+     };
+
+     return (
+       <div>
+         <p>This is my component</p>
+         <button onClick={() => handleDynamicClick(123)}>Go to Dynamic Route</button>
+       </div>
+     );
+   };
+   ```
+
+   In this example, clicking the button will navigate to a dynamic route with the provided `id`.
+
+And that's how you can use the `useNavigate` hook in a React component to handle navigation. It provides a convenient way to navigate programmatically without relying on `history` prop drilling or other patterns.
+
+
+## StrictMode
+- Each call is made two times inside the dev phase 
+- react checks for inconsistencies inside the data
+- 
