@@ -1,3 +1,8 @@
+# [Project Link](https://netflixgpt-22ee4.web.app/)
+
+- **Email** : dummy@gmail.com
+- **Password** : Dummy@1234
+
 # npx create-react-app netflix-gpt
 
 - testing already there
