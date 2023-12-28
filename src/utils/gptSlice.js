@@ -3,13 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 const gptSlice = createSlice({
     name: "gpt", 
     initialState:{
-        header : "Gpt Search",
+        header : "GptSearch",
         movies:null,
         textByGpt:null
     },
     reducers:{
         changeHeader:(state) => {
-            state.header = state.header === "Gpt Search" ? "Homepage" : "Gpt Search";
+            state.header = state.header === "GptSearch" ? "Homepage" : "GptSearch";
         },
         updateTextByGpt : (state,action) => {
             state.textByGpt = action.payload;

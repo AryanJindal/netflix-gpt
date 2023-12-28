@@ -5,12 +5,15 @@ import MovieList from "./MovieList";
 import GeminiCaller from "../utils/useGeminiCaller";
 import { API_options } from "../utils/constants";
 import { updateTextByGpt, updateMovies } from "../utils/gptSlice";
+import { useState } from "react";
+
 
 const GPTSearch = () => {
   const moviesFromGpt = useSelector((store) => store.gpt);
   const text = useRef();
   const dispatch = useDispatch();
 
+  const [loading , setLoading]= useState(false)
   const searchMovieTMDB = async (movie) => {
     const data = await fetch(
       "https://api.themoviedb.org/3/search/movie?query=" +
@@ -25,31 +28,31 @@ const GPTSearch = () => {
 
   const handleSubmitBeaviour = async (event) => {
     event.preventDefault();
-    console.log(text.current.value);
+    setLoading(true)
+    // console.log(text.current.value);
     const generativeResults = await GeminiCaller(text.current.value);
-    console.log(generativeResults);
-    // console.log("AabraKaDaabra")
 
     const moviesArray = generativeResults.split(",");
-    console.log(moviesArray);
+    // console.log(moviesArray);
     dispatch(updateTextByGpt(moviesArray));
 
     const promiseArray = moviesArray.map((movie) => searchMovieTMDB(movie));
     const tmdbResults = await Promise.all(promiseArray);
-    console.log(tmdbResults);
+    // console.log(tmdbResults);
     dispatch(updateMovies(tmdbResults));
+    setLoading(false);
   };
 
   return (
     <div className="w-full">
       <div
-        className="fixed inset-0 w-full h-full z-[-1]"
+        className="fixed inset-0 w-full h-full"
         style={{
           backgroundImage: `url(${newtflix_background})`,
           backgroundSize: "cover",
         }}
       />
-      <div className="w-full fixed mx-auto mt-[15vh]">
+      <div className="w-full mx-auto mt-[15vh]">
         <form
           className="bg-black opacity-90 flex justify-center items-center"
           onSubmit={handleSubmitBeaviour}
@@ -60,8 +63,10 @@ const GPTSearch = () => {
             placeholder="What would you like to view today?"
           ></input>
           <button className="m-4 p-2 bg-red-500 opacity-85">Search</button>
+          {loading && <div className="fixed z-50 w-8 h-8 rounded-full border border-current border-t-transparent animate-spin">
+  </div>}
         </form>
-
+        
         <div className="bg-black opacity-80">
           {moviesFromGpt.textByGpt !== null &&
             moviesFromGpt.movies &&

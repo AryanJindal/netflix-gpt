@@ -82,7 +82,7 @@ const Login = () => {
                 displayName: user.displayName,
                 // Add other user properties as needed
               }));
-              console.log(user)
+              // console.log(user)
 
             })
             .catch((error) => {
@@ -102,7 +102,7 @@ const Login = () => {
             <img src={newtflix_background} className='h-[100vh] w-[100vw]' alt='background'></img>
         </div>
 
-        <form onSubmit={(e)=> e.preventDefault()} className='absolute rounded-lg text-white w-4/12 my-36 mx-auto right-0 left-0 bg-black p-12 bg-opacity-80'>
+        <form onSubmit={(e)=> e.preventDefault()} className='absolute rounded-lg text-white w-11/12 my-36 mx-auto right-0 left-0 bg-black p-12 bg-opacity-80 md:w-4/12 '>
             <h1 className='text-3xl py-4 text-center font-bold '>{isSignInForm ? "Sign In" : "Sign Up"}</h1>
 
             {!isSignInForm && <input type="text" placeholder='Name' ref={name} className='rounded-lg bg-gray-700 p-4 my-4 w-full'/> }

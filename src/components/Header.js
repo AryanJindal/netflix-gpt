@@ -121,24 +121,22 @@ const Header = () => {
   };
 
   return (
-    <div className='fixed z-20 flex flex-col lg:flex-row bg-black justify-between w-full px-8 py-2 bg-gradient-to-b from-black to-transparent'>
-      <div className='flex items-center'>
-        <img className='w-40' src={netflix_logo} alt='logo' />
+    <div className='relative z-10 flex flex-col items-center lg:flex-row bg-black justify-between w-full px-8 py-2 bg-gradient-to-b from-black'>
+      <div className='w-[100vw]  flex justify-center lg:justify-start'>
+        <img className='block w-40 object-contain ' src={netflix_logo} alt='logo' />
       </div>
 
       {user && (
-        <div className='flex flex-col lg:flex-row p-2 items-center'>
+        <div className='flex flex-row items-center mx-4'>
           <button
             className='py-2 px-3 mx-4 m-2 bg-purple-800 rounded-full text-white'
             onClick={handleGPTsearchClick}
           >
             {gptSeachToken.header}
-          </button>
-          <div className='flex items-center'>
+            </button>
             <img className='rounded-md w-12 h-12' alt='user-icon' src={userIcon} />
-            <p className='text-white font-bold ml-3 text-l'>{user.displayName}</p>
-          </div>
-          <button onClick={handleSignOut} className='mx-4 p-[8px] rounded-xl bg-red-500'>
+            <p className='block text-white font-bold mx-3 text-l'>{user.displayName}</p>
+          <button onClick={handleSignOut} className='flex mx-4 p-[8px] rounded-xl bg-red-500'>
             SignOut
           </button>
         </div>

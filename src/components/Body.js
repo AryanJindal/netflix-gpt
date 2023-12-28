@@ -13,23 +13,29 @@ const Body = () => {
     const appRouter = createBrowserRouter([
         {
             path:"/", 
-            element:<Login/>
+            element:<Login/>,
+            errorElement:<ErrorPage/>
         }, 
         {
             path:"/browse", 
-            element:<Browse/>
+            element:<Browse/>,
+            errorElement:<ErrorPage/>
+
         }, 
         {
-            path: "/error",
-            element: <ErrorPage/>
+            path: "/search",
+            element:<GPTseach/>,
+            errorElement:<ErrorPage/>
+
         },
         {
-            path: "/search",
-            element:<GPTseach/>
-
-        },{
             path:"/video/:id",
-            element:<DefaultVideoPlayer/>
+            element:<DefaultVideoPlayer/>,
+            errorElement:<ErrorPage/>
+        },
+        {
+            path:"/error",
+            element:<ErrorPage/>
         }
     ])
 

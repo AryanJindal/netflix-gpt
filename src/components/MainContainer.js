@@ -12,8 +12,6 @@ const MainContainer = () => {
         return Math.floor(Math.random() * max);
     }
     const mainMovies = movies[getRandomInt(movies.length)];
-    // console.log(mainMovies)
-
     const {original_title, overview, id} = mainMovies;
   return (
     <div className=''>

@@ -17,10 +17,8 @@ const Browse = () => {
   const gptSeachToken = useSelector(store => store.gpt)
 
   return (
-    <div className='z-20'>
-      <div className='z-20' >
+    <div className=''>
       <Header/>
-      </div>
 
       <div>
       {
