@@ -103,13 +103,16 @@ const Login = () => {
         </div>
 
         <form onSubmit={(e)=> e.preventDefault()} className='absolute rounded-lg text-white w-11/12 my-36 mx-auto right-0 left-0 bg-black p-12 bg-opacity-80 md:w-4/12 '>
+            {/* <p>Email for SignIn: Dummy@gmail.com </p> */}
+            {/* <p>Password for SignIn: Dummy@1234 </p> */}
+
             <h1 className='text-3xl py-4 text-center font-bold '>{isSignInForm ? "Sign In" : "Sign Up"}</h1>
 
             {!isSignInForm && <input type="text" placeholder='Name' ref={name} className='rounded-lg bg-gray-700 p-4 my-4 w-full'/> }
 
-            <input type="text" ref={email} placeholder='Email-adress' className='rounded-lg bg-gray-700 p-4 my-4 w-full'/>
+            <input type="text" ref={email} placeholder='Email-adress (use Dummy@gmail.com)' className='rounded-lg bg-gray-700 p-4 my-4 w-full'/>
 
-            <input type="password" ref={password} placeholder='Password' className='rounded-lg bg-gray-700 p-4 my-4 w-full'/>
+            <input type="password" ref={password} placeholder='Password (use Dummy@1234)' className='rounded-lg bg-gray-700 p-4 my-4 w-full'/>
 
             <p className='text-red-600 font-bold font-xl'>{ErrorMessage}</p>
 

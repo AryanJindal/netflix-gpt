@@ -8,6 +8,8 @@ const generationConfig = {
   topK: 16,
 };
 // Access your API key as an environment variable (see "Set up your API key" above)
+const temp = process.env.REACT_APP_Gemini_key;
+console.log(temp)
 const genAI = new GoogleGenerativeAI(process.env.REACT_APP_Gemini_key, generationConfig);
 
 const GeminiCaller = async (input) => {
