@@ -118,7 +118,7 @@ const Login = () => {
 
             <button className='p-4 my-4 bg-red-700 rounded-lg text-white w-full' onClick={handleButtonClick}>{isSignInForm ? "Sign In" : "Sign Up"}</button>
 
-            <p className='py-4 hover:cursor-pointer' onClick={toggleSignInForm}>{isSignInForm ? "New to Netflix, Sign-up now" : "Already a user? Sign-in now"}</p>
+            <p className='py-4 hover:cursor-pointer' onClick={toggleSignInForm}>{isSignInForm ? "New to TrailerGPT, Sign-up now" : "Already a user? Sign-in now"}</p>
         </form>
     </div>
   )
