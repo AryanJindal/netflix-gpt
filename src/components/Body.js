@@ -7,6 +7,7 @@ import Login from './Login'
 import ErrorPage from './ErrorPage'
 import GPTseach from './GPTseach'
 import DefaultVideoPlayer from './DefaultVideoPlayer'
+import ShimmerComponent from './ShimmerComponent'
 
 const Body = () => {
     
@@ -36,6 +37,9 @@ const Body = () => {
         {
             path:"/error",
             element:<ErrorPage/>
+        }, {
+            path:"/shimmer", 
+            element:<ShimmerComponent/>
         }
     ])
 
